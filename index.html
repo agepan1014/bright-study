@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bright Study｜生徒一人ひとりに寄り添う個別指導塾（無料体験受付中）</title>
+<meta name="description" content="Bright Studyは中学生・高校生向けの個別指導塾です。一人ひとりに合わせた学習計画、定期テスト対策、保護者への定期報告で、わからないをそのままにしません。まずは無料体験授業へ。">
+
+<!-- ▼ 公開前に必ず実際のドメインへ変更してください（ダミーURLです） -->
+<link rel="canonical" href="https://example.com/bright-study/">
+
+<!-- ▼ OGP設定（公開前に og:url・画像パスを実際のものへ変更してください） -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="Bright Study｜生徒一人ひとりに寄り添う個別指導塾">
+<meta property="og:description" content="わからないを、そのままにしない。中学生・高校生向け個別指導塾Bright Study。無料体験授業を受付中です。">
+<meta property="og:url" content="https://example.com/bright-study/">
+<meta property="og:image" content="images/ogp.jpg">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary_large_image">
+
+<style>
+/* ==========================================================================
+   0. デザイントークン（配色・フォント・共通サイズ）
+   ========================================================================== */
+:root{
+  /* --- 色 --- */
+  --color-white:#FFFFFF;
+  --color-ivory:#FAF6EE;
+  --color-ivory-deep:#F1EADA;
+  --color-navy:#1E3A5F;
+  --color-navy-deep:#14283F;
+  --color-navy-soft:#4C6483;
+  --color-accent:#F2A93B;
+  --color-accent-deep:#D98A1E;
+  --color-text:#2B2F36;
+  --color-text-muted:#5B6472;
+  --color-border:#E4DFCF;
+  --color-card-bg:#FFFFFF;
+  --color-focus:#0F6FFF;
+
+  /* --- 書体 --- */
+  --font-heading:"Hiragino Mincho ProN","Yu Mincho","YuMincho","MS PMincho",serif;
+  --font-body:-apple-system,BlinkMacSystemFont,"Hiragino Kaku Gothic ProN","Yu Gothic","Meiryo",sans-serif;
+
+  /* --- レイアウト --- */
+  --max-width:1120px;
+  --radius-sm:6px;
+  --radius-md:12px;
+  --shadow-card:0 4px 16px rgba(20,40,63,0.08);
+  --header-height:64px;
+}
+
+/* ==========================================================================
+   1. リセット・基本設定
+   ========================================================================== */
+*, *::before, *::after{ box-sizing:border-box; }
+html{
+  scroll-behavior:smooth;
+  /* 固定ヘッダー（高さ var(--header-height)）の分だけ、
+     アンカーリンクの着地位置に余白を確保し、見出しが隠れないようにする */
+  scroll-padding-top:calc(var(--header-height) + 24px);
+}
+body{
+  margin:0;
+  font-family:var(--font-body);
+  color:var(--color-text);
+  background:var(--color-white);
+  line-height:1.8;
+  -webkit-font-smoothing:antialiased;
+}
+img{ max-width:100%; display:block; }
+a{ color:inherit; text-decoration:none; }
+ul{ margin:0; padding:0; list-style:none; }
+h1,h2,h3,h4{ font-family:var(--font-heading); color:var(--color-navy-deep); margin:0; line-height:1.5; }
+p{ margin:0; }
+button{ font-family:inherit; cursor:pointer; }
+input, select, textarea{ font-family:inherit; font-size:1rem; }
+
+/* キーボード操作時のフォーカスを明確に表示（アクセシビリティ） */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible{
+  outline:3px solid var(--color-focus);
+  outline-offset:2px;
+}
+
+/* 本文へスキップするリンク（普段は画面外、フォーカス時のみ表示） */
+.skip-link{
+  position:absolute;
+  left:-999px;
+  top:0;
+  background:var(--color-navy-deep);
+  color:var(--color-white);
+  padding:0.9em 1.4em;
+  z-index:2000;
+  border-radius:0 0 var(--radius-sm) 0;
+}
+.skip-link:focus{
+  left:0;
+}
+
+/* アニメーションを抑えたい方への配慮 */
+@media (prefers-reduced-motion: reduce){
+  html{ scroll-behavior:auto; }
+  *, *::before, *::after{
+    animation-duration:0.001ms !important;
+    animation-iteration-count:1 !important;
+    transition-duration:0.001ms !important;
+    scroll-behavior:auto !important;
+  }
+}
+
+/* ==========================================================================
+   2. 共通レイアウト・部品
+   ========================================================================== */
+.container{
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 20px;
+}
+.section{
+  padding:72px 0;
+}
+.section--ivory{ background:var(--color-ivory); }
+.section--navy{ background:var(--color-navy-deep); color:var(--color-white); }
+.section--navy h2{ color:var(--color-white); }
+
+.section-head{
+  text-align:center;
+  max-width:640px;
+  margin:0 auto 44px;
+}
+.eyebrow{
+  display:inline-block;
+  font-family:var(--font-body);
+  font-size:0.78rem;
+  font-weight:700;
+  letter-spacing:0.16em;
+  color:var(--color-accent-deep);
+  margin-bottom:10px;
+}
+.section-head h2{
+  font-size:clamp(1.5rem, 1.2rem + 1.2vw, 2.1rem);
+  margin-bottom:14px;
+}
+.section-head p{
+  color:var(--color-text-muted);
+}
+
+/* デモ表記バナー（実績・口コミなど架空データの明示に使用） */
+.section-banner{
+  max-width:640px;
+  margin:0 auto 40px;
+  padding:12px 20px;
+  background:#FFF7E8;
+  border:1px solid var(--color-accent);
+  border-radius:var(--radius-sm);
+  color:var(--color-navy-deep);
+  font-size:0.92rem;
+  text-align:center;
+}
+
+/* ボタン共通 */
+.btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  padding:14px 28px;
+  border-radius:999px;
+  font-weight:700;
+  font-size:0.98rem;
+  border:2px solid transparent;
+  transition:transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space:nowrap;
+}
+.btn:hover{ transform:translateY(-2px); }
+.btn--accent{
+  background:var(--color-accent);
+  color:var(--color-navy-deep);
+  box-shadow:0 6px 16px rgba(242,169,59,0.35);
+}
+.btn--accent:hover{ background:var(--color-accent-deep); }
+.btn--outline{
+  background:transparent;
+  border-color:var(--color-navy);
+  color:var(--color-navy);
+}
+.btn--outline:hover{ background:var(--color-navy); color:var(--color-white); }
+.btn--block{ width:100%; }
+
+/* カード共通 */
+.card{
+  background:var(--color-card-bg);
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  box-shadow:var(--shadow-card);
+  padding:28px 24px;
+}
+
+/* アイコンバッジ（SVGを円で囲む共通部品） */
+.icon-badge{
+  width:52px;
+  height:52px;
+  border-radius:50%;
+  background:var(--color-ivory-deep);
+  color:var(--color-navy);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:16px;
+  flex-shrink:0;
+}
+.icon-badge svg{ width:26px; height:26px; }
+
+/* グリッド */
+.grid{
+  display:grid;
+  gap:24px;
+}
+@media (min-width:640px){
+  .grid--2{ grid-template-columns:repeat(2,1fr); }
+}
+@media (min-width:900px){
+  .grid--3{ grid-template-columns:repeat(3,1fr); }
+  .grid--4{ grid-template-columns:repeat(4,1fr); }
+}
+
+/* 画像プレースホルダー枠（画像が無くてもレイアウトが崩れないようにする） */
+.media-frame{
+  position:relative;
+  overflow:hidden;
+  border-radius:var(--radius-md);
+  background:linear-gradient(135deg, var(--color-ivory-deep), var(--color-ivory));
+}
+.media-frame--hero{ aspect-ratio:4 / 3; }
+/* Hero画像は下に「学習カルテ」カードを重ねるため、
+   プレースホルダーの文言は下部と被らないよう上寄せにする */
+.media-frame--hero .media-frame__placeholder{
+  justify-content:flex-start;
+  padding-top:16%;
+}
+.media-frame--feature{ aspect-ratio:16 / 10; }
+.media-frame--teacher{ aspect-ratio:3 / 4; border-radius:var(--radius-md) var(--radius-md) 0 0; }
+.media-frame__placeholder{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:8px;
+  color:var(--color-navy-soft);
+  text-align:center;
+  padding:12px;
+}
+.media-frame__placeholder svg{ width:38px; height:38px; opacity:0.6; }
+.media-frame__placeholder span{ font-size:0.8rem; }
+.media-frame__img{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+/* 画像の読み込みに失敗した場合はimgを隠し、背後のプレースホルダーを見せる */
+.media-frame__img--error{ display:none; }
+
+/* 中央寄せの見出し下テキストなど、視覚的に隠すがSRには読ませたい要素 */
+.visually-hidden{
+  position:absolute;
+  width:1px; height:1px;
+  padding:0; margin:-1px;
+  overflow:hidden;
+  clip:rect(0,0,0,0);
+  white-space:nowrap;
+  border:0;
+}
+
+/* スクロールで少しずつ表示するフェードイン演出 */
+.fade-in{
+  opacity:0;
+  transform:translateY(16px);
+  transition:opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-in.is-visible{
+  opacity:1;
+  transform:none;
+}
+
+/* ==========================================================================
+   3. ヘッダー・ナビゲーション
+   ========================================================================== */
+.site-header{
+  position:fixed;
+  top:0; left:0; right:0;
+  height:var(--header-height);
+  display:flex;
+  align-items:center;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(6px);
+  border-bottom:1px solid transparent;
+  z-index:1000;
+  transition:box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.site-header.is-scrolled{
+  box-shadow:0 2px 12px rgba(20,40,63,0.08);
+  border-bottom-color:var(--color-border);
+}
+.site-header__inner{
+  width:100%;
+  max-width:var(--max-width);
+  margin:0 auto;
+  padding:0 20px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+}
+.site-header__logo{
+  display:flex;
+  flex-direction:column;
+  line-height:1.1;
+}
+.site-header__logo-main{
+  font-family:var(--font-heading);
+  font-size:1.3rem;
+  font-weight:700;
+  color:var(--color-navy-deep);
+  letter-spacing:0.02em;
+}
+.site-header__logo-sub{
+  font-size:0.62rem;
+  letter-spacing:0.14em;
+  color:var(--color-text-muted);
+}
+
+/* PC用ナビゲーション（初期状態＝スマホでは非表示） */
+.site-nav{ display:none; }
+.site-nav__list{
+  display:flex;
+  gap:22px;
+}
+.site-nav__list a{
+  font-size:0.9rem;
+  font-weight:600;
+  color:var(--color-navy);
+  padding:6px 2px;
+  border-bottom:2px solid transparent;
+  transition:border-color 0.15s ease;
+}
+.site-nav__list a:hover{ border-color:var(--color-accent); }
+
+.site-header__cta{
+  display:none; /* スマホでは窮屈になるため非表示。メニュー内のCTAに誘導する */
+  padding:11px 22px;
+  font-size:0.88rem;
+}
+
+/* ハンバーガーボタン（スマホのみ表示） */
+.hamburger{
+  width:44px;
+  height:44px;
+  border:none;
+  background:transparent;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:5px;
+  flex-shrink:0;
+}
+.hamburger__line{
+  width:24px;
+  height:2px;
+  background:var(--color-navy-deep);
+  transition:transform 0.2s ease, opacity 0.2s ease;
+}
+.hamburger[aria-expanded="true"] .hamburger__line:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+.hamburger[aria-expanded="true"] .hamburger__line:nth-child(2){ opacity:0; }
+.hamburger[aria-expanded="true"] .hamburger__line:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+
+/* スマホ用フルスクリーンメニュー */
+.mobile-nav{
+  position:fixed;
+  inset:0;
+  top:var(--header-height);
+  background:var(--color-white);
+  z-index:999;
+  padding:28px 24px;
+  overflow-y:auto;
+}
+.mobile-nav[hidden]{ display:none; }
+.mobile-nav__cta{
+  display:block;
+  text-align:center;
+  margin-bottom:24px;
+}
+.mobile-nav ul{
+  display:flex;
+  flex-direction:column;
+}
+.mobile-nav li + li{
+  border-top:1px solid var(--color-border);
+}
+.mobile-nav a{
+  display:block;
+  padding:16px 4px;
+  font-weight:600;
+  color:var(--color-navy-deep);
+  font-size:1.02rem;
+}
+
+@media (min-width:900px){
+  .site-nav{ display:block; }
+  .site-header__cta{ display:inline-flex; }
+  .hamburger{ display:none; }
+  .mobile-nav{ display:none !important; }
+}
+
+/* ==========================================================================
+   4. Hero
+   ========================================================================== */
+.hero{
+  padding-top:calc(var(--header-height) + 56px);
+  padding-bottom:64px;
+  background:linear-gradient(180deg, var(--color-ivory) 0%, var(--color-white) 100%);
+}
+.hero__inner{
+  display:grid;
+  gap:40px;
+  align-items:center;
+}
+@media (min-width:900px){
+  .hero__inner{ grid-template-columns:1.05fr 0.95fr; gap:56px; }
+}
+.hero__copy h1{
+  font-size:clamp(1.7rem, 1.2rem + 2.2vw, 2.6rem);
+  margin-bottom:18px;
+}
+.hero__copy p{
+  color:var(--color-text-muted);
+  font-size:1.02rem;
+  margin-bottom:28px;
+  max-width:46ch;
+}
+.hero__actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:14px;
+}
+.hero__visual{
+  position:relative;
+}
+/* Hero内の「学習カルテ」風カード：個別指導ならではの可視化を象徴する差別化要素 */
+.hero__note-card{
+  position:absolute;
+  left:-12px;
+  bottom:-20px;
+  width:min(240px, 62%);
+  background:var(--color-white);
+  border-radius:var(--radius-md);
+  box-shadow:0 10px 30px rgba(20,40,63,0.18);
+  padding:16px 18px;
+  border:1px solid var(--color-border);
+}
+.hero__note-card p{ margin:0; }
+.hero__note-card__label{
+  font-size:0.68rem;
+  color:var(--color-text-muted);
+  letter-spacing:0.06em;
+  margin-bottom:8px !important;
+}
+.hero__note-card__row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  font-size:0.8rem;
+  margin-bottom:6px !important;
+}
+.hero__note-card__bar{
+  flex:1;
+  height:6px;
+  background:var(--color-ivory-deep);
+  border-radius:999px;
+  overflow:hidden;
+}
+.hero__note-card__bar-fill{
+  display:block;
+  height:100%;
+  width:78%;
+  background:var(--color-accent);
+  border-radius:999px;
+}
+.hero__note-card__foot{
+  font-size:0.72rem;
+  color:var(--color-navy);
+  font-weight:700;
+}
+.hero__note-card__caption{
+  font-size:0.62rem !important;
+  color:var(--color-text-muted);
+  margin-top:8px !important;
+}
+
+/* ==========================================================================
+   5. Problems（お悩み）
+   ========================================================================== */
+.problem-card{
+  display:flex;
+  flex-direction:column;
+}
+.problem-card h3{
+  font-size:1.02rem;
+  margin-bottom:8px;
+}
+.problem-card p{
+  color:var(--color-text-muted);
+  font-size:0.92rem;
+}
+.problems__lead{
+  text-align:center;
+  max-width:520px;
+  margin:44px auto 0;
+  color:var(--color-navy);
+  font-weight:700;
+}
+
+/* ==========================================================================
+   6. Features（特徴）
+   ========================================================================== */
+.feature-card{
+  display:flex;
+  flex-direction:column;
+}
+.feature-card h3{
+  font-size:1.08rem;
+  margin-bottom:10px;
+}
+.feature-card p{
+  color:var(--color-text-muted);
+  font-size:0.92rem;
+}
+
+/* ==========================================================================
+   7. Courses（コース）
+   ========================================================================== */
+.course-card{
+  border-top:4px solid var(--color-navy);
+}
+.course-card h3{
+  font-size:1.1rem;
+  margin-bottom:12px;
+}
+.course-card dl{
+  margin:0;
+  font-size:0.9rem;
+}
+.course-card dt{
+  font-weight:700;
+  color:var(--color-navy);
+  margin-top:12px;
+}
+.course-card dd{
+  margin:4px 0 0;
+  color:var(--color-text-muted);
+}
+
+/* ==========================================================================
+   8. Price（料金）
+   ========================================================================== */
+.price-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+  border-radius:var(--radius-md);
+  border:1px solid var(--color-border);
+}
+.price-table{
+  width:100%;
+  border-collapse:collapse;
+  min-width:520px;
+  background:var(--color-white);
+}
+.price-table caption{
+  text-align:left;
+  padding:14px 18px;
+  font-size:0.85rem;
+  color:var(--color-text-muted);
+  background:var(--color-ivory);
+}
+.price-table th,
+.price-table td{
+  padding:16px 18px;
+  text-align:center;
+  border-bottom:1px solid var(--color-border);
+  font-size:0.94rem;
+}
+.price-table thead th{
+  background:var(--color-navy-deep);
+  color:var(--color-white);
+  font-weight:700;
+}
+.price-table tbody th{
+  text-align:left;
+  color:var(--color-navy-deep);
+  font-weight:700;
+  background:var(--color-ivory);
+}
+.price-table tbody tr.is-popular td,
+.price-table tbody tr.is-popular th{
+  background:#FFF7E8;
+}
+.price-popular-badge{
+  display:inline-block;
+  margin-left:6px;
+  padding:2px 8px;
+  font-size:0.68rem;
+  font-weight:700;
+  color:var(--color-navy-deep);
+  background:var(--color-accent);
+  border-radius:999px;
+  vertical-align:middle;
+}
+.price-note-list{
+  margin-top:24px;
+  display:grid;
+  gap:12px;
+  font-size:0.9rem;
+  color:var(--color-text-muted);
+}
+@media (min-width:640px){
+  .price-note-list{ grid-template-columns:repeat(2,1fr); }
+}
+.price-note-list li{
+  background:var(--color-ivory);
+  border-radius:var(--radius-sm);
+  padding:14px 16px;
+}
+.price-note-list strong{ color:var(--color-navy-deep); }
+.price-disclaimer{
+  margin-top:20px;
+  font-size:0.82rem;
+  color:var(--color-text-muted);
+  text-align:center;
+}
+.section-cta{
+  text-align:center;
+  margin-top:44px;
+}
+
+/* ==========================================================================
+   9. Results（実績）
+   ========================================================================== */
+.result-card{
+  text-align:center;
+}
+.result-card__num{
+  font-family:var(--font-heading);
+  font-size:2.1rem;
+  color:var(--color-navy-deep);
+  font-weight:700;
+  display:block;
+  margin-bottom:6px;
+}
+.result-card__label{
+  font-size:0.86rem;
+  color:var(--color-text-muted);
+}
+
+/* ==========================================================================
+   10. Teachers（講師紹介）
+   ========================================================================== */
+.teacher-card{
+  padding:0;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.teacher-card__body{
+  padding:22px 22px 26px;
+}
+.teacher-card__name{
+  font-size:1.08rem;
+  margin-bottom:2px;
+}
+.teacher-card__subject{
+  font-size:0.82rem;
+  color:var(--color-accent-deep);
+  font-weight:700;
+  margin-bottom:14px;
+}
+.teacher-card__policy{
+  font-size:0.88rem;
+  color:var(--color-text-muted);
+  margin-bottom:12px;
+}
+.teacher-card__comment{
+  font-size:0.86rem;
+  color:var(--color-navy);
+  border-left:3px solid var(--color-accent);
+  padding-left:10px;
+}
+
+/* ==========================================================================
+   11. Voice（生徒・保護者の声）
+   ========================================================================== */
+.voice-card{
+  display:flex;
+  flex-direction:column;
+}
+.voice-card__attr{
+  font-size:0.78rem;
+  font-weight:700;
+  color:var(--color-navy);
+  background:var(--color-ivory);
+  align-self:flex-start;
+  padding:4px 10px;
+  border-radius:999px;
+  margin-bottom:14px;
+}
+.voice-card__text{
+  font-size:0.92rem;
+  color:var(--color-text);
+  flex-grow:1;
+}
+.voice-card__text::before{ content:"“"; }
+.voice-card__text::after{ content:"”"; }
+
+/* ==========================================================================
+   12. Flow（無料体験までの流れ）
+   ========================================================================== */
+.flow-list{
+  display:grid;
+  gap:20px;
+  list-style:none;
+  padding-left:0;
+}
+@media (min-width:900px){
+  .flow-list{ grid-template-columns:repeat(4,1fr); }
+}
+.flow-step{
+  position:relative;
+  padding-top:8px;
+}
+.flow-step__num{
+  font-family:var(--font-heading);
+  font-size:2rem;
+  color:var(--color-accent-deep);
+  font-weight:700;
+  display:block;
+  margin-bottom:10px;
+}
+.flow-step h3{
+  font-size:1rem;
+  margin-bottom:8px;
+}
+.flow-step p{
+  font-size:0.88rem;
+  color:var(--color-text-muted);
+}
+
+/* ==========================================================================
+   13. FAQ
+   ========================================================================== */
+.faq-list{
+  max-width:760px;
+  margin:0 auto;
+  display:grid;
+  gap:14px;
+}
+.faq-item{
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-md);
+  background:var(--color-white);
+  overflow:hidden;
+}
+.faq__question{
+  width:100%;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:12px;
+  background:transparent;
+  border:none;
+  padding:18px 20px;
+  text-align:left;
+  font-size:0.98rem;
+  font-weight:700;
+  color:var(--color-navy-deep);
+}
+.faq__icon{
+  flex-shrink:0;
+  width:20px;
+  height:20px;
+  position:relative;
+}
+.faq__icon::before,
+.faq__icon::after{
+  content:"";
+  position:absolute;
+  background:var(--color-navy);
+  top:50%; left:50%;
+  transform:translate(-50%,-50%);
+}
+.faq__icon::before{ width:14px; height:2px; }
+.faq__icon::after{ width:2px; height:14px; transition:transform 0.2s ease; }
+.faq__question[aria-expanded="true"] .faq__icon::after{ transform:translate(-50%,-50%) scaleY(0); }
+.faq__answer{
+  padding:0 20px 20px;
+  font-size:0.9rem;
+  color:var(--color-text-muted);
+}
+
+/* ==========================================================================
+   14. Access（教室情報）
+   ========================================================================== */
+.access__grid{
+  display:grid;
+  gap:36px;
+}
+@media (min-width:900px){
+  .access__grid{ grid-template-columns:1fr 1fr; align-items:start; }
+}
+.access__list{
+  display:grid;
+  gap:16px;
+}
+.access__list dt{
+  font-size:0.78rem;
+  font-weight:700;
+  color:var(--color-accent);
+  letter-spacing:0.06em;
+}
+.access__list dd{
+  margin:4px 0 0;
+  font-size:1rem;
+}
+.access-map{
+  aspect-ratio:4/3;
+  border-radius:var(--radius-md);
+  background:
+    linear-gradient(var(--color-navy-soft) 1px, transparent 1px) 0 0/28px 28px,
+    linear-gradient(90deg, var(--color-navy-soft) 1px, transparent 1px) 0 0/28px 28px,
+    var(--color-navy-deep);
+  background-color:var(--color-navy-deep);
+  opacity:0.95;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  color:var(--color-white);
+  padding:20px;
+}
+.access-map span{ font-size:0.85rem; }
+
+/* ==========================================================================
+   15. Trial（無料体験申し込みフォーム）
+   ========================================================================== */
+.trial-form{
+  max-width:680px;
+  margin:0 auto;
+  display:grid;
+  gap:22px;
+}
+.form-row label{
+  display:block;
+  font-weight:700;
+  font-size:0.9rem;
+  margin-bottom:8px;
+  color:var(--color-navy-deep);
+}
+.required-mark{
+  color:#C0392B;
+  font-size:0.78rem;
+  margin-left:4px;
+  font-weight:700;
+}
+.form-row input[type="text"],
+.form-row input[type="tel"],
+.form-row input[type="email"],
+.form-row select,
+.form-row textarea{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+  background:var(--color-white);
+  color:var(--color-text);
+}
+.form-row textarea{ resize:vertical; min-height:110px; }
+.form-row--checks fieldset{
+  border:1px solid var(--color-border);
+  border-radius:var(--radius-sm);
+  padding:14px 16px;
+}
+.form-row--checks legend{
+  font-weight:700;
+  font-size:0.9rem;
+  color:var(--color-navy-deep);
+  padding:0 4px;
+}
+.check-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px 16px;
+  margin-top:6px;
+}
+@media (min-width:520px){
+  .check-grid{ grid-template-columns:repeat(3,1fr); }
+}
+.check-grid label{
+  display:flex;
+  align-items:center;
+  gap:6px;
+  font-weight:400;
+  font-size:0.9rem;
+  margin:0;
+}
+.form-status{
+  padding:14px 18px;
+  border-radius:var(--radius-sm);
+  background:#EAF6EC;
+  border:1px solid #8FC79A;
+  color:#1F5C2B;
+  font-size:0.92rem;
+}
+.form-disclaimer{
+  font-size:0.8rem;
+  color:var(--color-text-muted);
+  text-align:center;
+}
+
+/* ==========================================================================
+   16. フッター
+   ========================================================================== */
+.site-footer{
+  background:var(--color-navy-deep);
+  color:rgba(255,255,255,0.75);
+  padding:36px 0;
+  text-align:center;
+  font-size:0.82rem;
+}
+.site-footer strong{ color:var(--color-white); }
+</style>
+</head>
+<body>
+
+<!-- 本文へスキップするリンク（スクリーンリーダー・キーボード操作向け） -->
+<a href="#main-content" class="skip-link">本文へスキップ</a>
+
+<!-- ==========================================================================
+     ヘッダー（PCでは常時表示のナビ＋CTA、スマホではロゴ＋ハンバーガーのみ）
+     ========================================================================== -->
+<header class="site-header" id="site-header">
+  <div class="site-header__inner">
+    <a href="#hero" class="site-header__logo">
+      <span class="site-header__logo-main">Bright&nbsp;Study</span>
+      <span class="site-header__logo-sub">個別指導塾（中学生・高校生向け）</span>
+    </a>
+
+    <nav class="site-nav" aria-label="サイト内ナビゲーション">
+      <ul class="site-nav__list">
+        <li><a href="#problems">お悩み</a></li>
+        <li><a href="#features">特徴</a></li>
+        <li><a href="#courses">コース</a></li>
+        <li><a href="#price">料金</a></li>
+        <li><a href="#results">実績</a></li>
+        <li><a href="#teachers">講師紹介</a></li>
+        <li><a href="#voice">生徒・保護者の声</a></li>
+        <li><a href="#faq">よくある質問</a></li>
+        <li><a href="#access">教室情報</a></li>
+      </ul>
+    </nav>
+
+    <!-- PC用CTA：スマホでは非表示にし、ハンバーガーメニュー内に集約する -->
+    <a href="#trial" class="btn btn--accent site-header__cta">無料体験を申し込む</a>
+
+    <!-- スマホ用メニューボタン -->
+    <button type="button"
+            id="menu-toggle"
+            class="hamburger"
+            aria-expanded="false"
+            aria-controls="mobile-nav"
+            aria-label="メニューを開く">
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+      <span class="hamburger__line"></span>
+    </button>
+  </div>
+</header>
+
+<!-- スマホ用フルスクリーンナビゲーション（初期状態は非表示） -->
+<div class="mobile-nav" id="mobile-nav" hidden>
+  <nav aria-label="モバイル用ナビゲーション">
+    <a href="#trial" class="btn btn--accent btn--block mobile-nav__cta">無料体験を申し込む</a>
+    <ul>
+      <li><a href="#problems">お悩み</a></li>
+      <li><a href="#features">特徴</a></li>
+      <li><a href="#courses">コース</a></li>
+      <li><a href="#price">料金</a></li>
+      <li><a href="#results">実績</a></li>
+      <li><a href="#teachers">講師紹介</a></li>
+      <li><a href="#voice">生徒・保護者の声</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+      <li><a href="#access">教室情報</a></li>
+    </ul>
+  </nav>
+</div>
+
+<main id="main-content">
+
+  <!-- ==========================================================================
+       1. Hero
+       ========================================================================== -->
+  <section class="hero" id="hero" aria-label="Bright Study 紹介">
+    <div class="container hero__inner">
+      <div class="hero__copy">
+        <h1>わからないを、<br>そのままにしない。</h1>
+        <p>Bright Studyは、中学生・高校生一人ひとりの理解度に合わせて指導する個別指導塾です。学習計画の作成から定期テスト対策、保護者への定期報告まで、お子さまの「わかった」を一緒に増やしていきます。</p>
+        <div class="hero__actions">
+          <a href="#trial" class="btn btn--accent">無料体験を申し込む</a>
+          <a href="#courses" class="btn btn--outline">コースを見る</a>
+        </div>
+      </div>
+
+      <div class="hero__visual">
+        <div class="media-frame media-frame--hero">
+          <div class="media-frame__placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 19V6a2 2 0 0 1 2-2h9l5 5v10a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M15 4v5h5"/><path d="M8 13h8M8 16h5"/></svg>
+            <span>教室での学習風景（イメージ）</span>
+          </div>
+          <img class="media-frame__img"
+               src="images/hero.jpg"
+               alt="Bright Studyの教室で講師の個別指導を受ける生徒の様子"
+               loading="eager"
+               onerror="this.classList.add('media-frame__img--error')">
+        </div>
+
+        <!-- 差別化の signature 要素：個別指導ならではの「学習カルテ」風カード -->
+        <div class="hero__note-card">
+          <p class="hero__note-card__label">生徒カルテ（サンプル画面）</p>
+          <p class="hero__note-card__row">
+            理解度
+            <span class="hero__note-card__bar"><span class="hero__note-card__bar-fill"></span></span>
+          </p>
+          <p class="hero__note-card__foot">前回の体験授業から +18%</p>
+          <p class="hero__note-card__caption">※デモ用のイメージです</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       2. Problems（お悩み）
+       ========================================================================== -->
+  <section class="section" id="problems" aria-labelledby="problems-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">PROBLEM</p>
+        <h2 id="problems-heading">こんなお悩みありませんか？</h2>
+        <p>お子さまの勉強について、こんな声をよくお聞きします。</p>
+      </div>
+
+      <div class="grid grid--4">
+        <div class="card problem-card fade-in">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.9.4-1.5 1-1.5 2.2"/><path d="M12 17h.01"/></svg>
+          </div>
+          <h3>学校の授業についていけない</h3>
+          <p>一度つまずくと、次の単元も分からなくなってしまう。</p>
+        </div>
+
+        <div class="card problem-card fade-in">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19V6a2 2 0 0 1 2-2h6l6 6v9a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><path d="M12 4v6h6"/></svg>
+          </div>
+          <h3>勉強のやり方が分からない</h3>
+          <p>何をどう勉強すればいいのか、本人も手探りの状態。</p>
+        </div>
+
+        <div class="card problem-card fade-in">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 19h16"/><path d="M7 19v-5M12 19V8M17 19v-9"/></svg>
+          </div>
+          <h3>定期テストの点数が伸びない</h3>
+          <p>頑張っているはずなのに、テストの結果になかなか表れない。</p>
+        </div>
+
+        <div class="card problem-card fade-in">
+          <div class="icon-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 11 12 4l9 7"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg>
+          </div>
+          <h3>家ではなかなか勉強できない</h3>
+          <p>ゲームやスマホの誘惑が多く、一人だと集中が続かない。</p>
+        </div>
+      </div>
+
+      <p class="problems__lead fade-in">Bright Studyは、こうしたお悩みに一つずつ向き合います。</p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       3. Features（Bright Studyの特徴）
+       ========================================================================== -->
+  <section class="section section--ivory" id="features" aria-labelledby="features-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">FEATURE</p>
+        <h2 id="features-heading">Bright Studyの特徴</h2>
+        <p>一人ひとりに合わせた指導で、「分かる」を「できる」に変えていきます。</p>
+      </div>
+
+      <div class="grid grid--4">
+        <div class="card feature-card fade-in">
+          <h3>生徒一人ひとりに合わせた個別指導</h3>
+          <p>集団授業では聞きづらい質問も、個別指導なら気兼ねなく聞けます。理解のペースに合わせて進むので、置いていかれる心配がありません。</p>
+        </div>
+        <div class="card feature-card fade-in">
+          <h3>定期テスト対策</h3>
+          <p>学校の教科書・進度に合わせてテスト範囲を集中的に対策。「何をやればいいか分からない」を解消し、得点アップを目指します。</p>
+        </div>
+        <div class="card feature-card fade-in">
+          <h3>学習計画の作成</h3>
+          <p>目標から逆算した学習計画を講師と一緒に作成。家庭学習の時間も「何をやるか」が明確になり、迷わず取り組めるようになります。</p>
+        </div>
+        <div class="card feature-card fade-in">
+          <h3>保護者への定期報告</h3>
+          <p>お子さまの学習状況や成長を定期的にご報告。家庭では見えにくい塾での様子が分かり、安心してお任せいただけます。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       4. Courses（コース）
+       ========================================================================== -->
+  <section class="section" id="courses" aria-labelledby="courses-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">COURSE</p>
+        <h2 id="courses-heading">コース</h2>
+        <p>学年・目的に合わせて、4つのコースからお選びいただけます。</p>
+      </div>
+
+      <div class="grid grid--4">
+        <div class="card course-card fade-in">
+          <h3>中学生コース</h3>
+          <dl>
+            <dt>対象学年</dt>
+            <dd>中学1年生〜中学3年生</dd>
+            <dt>指導内容</dt>
+            <dd>学校の予習・復習、定期テスト対策を中心に基礎力を固めます。</dd>
+          </dl>
+        </div>
+        <div class="card course-card fade-in">
+          <h3>高校生コース</h3>
+          <dl>
+            <dt>対象学年</dt>
+            <dd>高校1年生〜高校3年生</dd>
+            <dt>指導内容</dt>
+            <dd>定期テスト対策に加え、大学受験を見据えた応用力を養成します。</dd>
+          </dl>
+        </div>
+        <div class="card course-card fade-in">
+          <h3>定期テスト対策コース</h3>
+          <dl>
+            <dt>対象学年</dt>
+            <dd>中学生・高校生</dd>
+            <dt>指導内容</dt>
+            <dd>テスト2〜3週間前から範囲を絞った短期集中対策を行います。</dd>
+          </dl>
+        </div>
+        <div class="card course-card fade-in">
+          <h3>受験対策コース</h3>
+          <dl>
+            <dt>対象学年</dt>
+            <dd>中学3年生・高校3年生</dd>
+            <dt>指導内容</dt>
+            <dd>志望校の出題傾向に合わせた演習と過去問対策を行います。</dd>
+          </dl>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       5. Price（料金）
+       ========================================================================== -->
+  <section class="section section--ivory" id="price" aria-labelledby="price-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">PRICE</p>
+        <h2 id="price-heading">料金</h2>
+        <p>通塾回数に合わせて、無理のない料金プランをご用意しています。</p>
+      </div>
+
+      <div class="price-table-wrap fade-in">
+        <table class="price-table">
+          <caption>月謝の目安（1回90分・税込／デモ用の架空料金です）</caption>
+          <thead>
+            <tr>
+              <th scope="col">プラン</th>
+              <th scope="col">中学生</th>
+              <th scope="col">高校生</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">週1回</th>
+              <td>¥13,200</td>
+              <td>¥15,400</td>
+            </tr>
+            <tr class="is-popular">
+              <th scope="row">週2回<span class="price-popular-badge">人気No.1</span></th>
+              <td>¥24,200</td>
+              <td>¥27,500</td>
+            </tr>
+            <tr>
+              <th scope="row">週3回</th>
+              <td>¥34,100</td>
+              <td>¥38,500</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <ul class="price-note-list fade-in">
+        <li><strong>入会金：</strong>¥11,000（税込・デモ用の金額です）</li>
+        <li><strong>教材費：</strong>年間 ¥3,300〜¥8,800程度（学年・コースにより異なります）</li>
+      </ul>
+
+      <p class="price-disclaimer fade-in">※上記はすべてデモサイト用の架空料金です。実際の料金とは異なります。</p>
+
+      <div class="section-cta fade-in">
+        <a href="#trial" class="btn btn--accent">無料体験を申し込む</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       6. Results（実績）
+       ========================================================================== -->
+  <section class="section" id="results" aria-labelledby="results-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">RESULT</p>
+        <h2 id="results-heading">実績</h2>
+      </div>
+
+      <p class="section-banner fade-in">※これはデモ用の架空実績です。実在の生徒・学校とは一切関係ありません。</p>
+
+      <div class="grid grid--4">
+        <div class="card result-card fade-in">
+          <span class="result-card__num">+25点</span>
+          <p class="result-card__label">中学2年生・数学（定期テスト）</p>
+        </div>
+        <div class="card result-card fade-in">
+          <span class="result-card__num">+18点</span>
+          <p class="result-card__label">高校1年生・英語（定期テスト）</p>
+        </div>
+        <div class="card result-card fade-in">
+          <span class="result-card__num">第一志望</span>
+          <p class="result-card__label">中学3年生・志望校合格</p>
+        </div>
+        <div class="card result-card fade-in">
+          <span class="result-card__num">内申点UP</span>
+          <p class="result-card__label">中学3年生・2学期評定アップ</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       7. Teachers（講師紹介）
+       ========================================================================== -->
+  <section class="section section--ivory" id="teachers" aria-labelledby="teachers-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">TEACHER</p>
+        <h2 id="teachers-heading">講師紹介</h2>
+        <p>お子さまに寄り添う、経験豊富な講師がお迎えします。</p>
+      </div>
+
+      <div class="grid grid--3">
+        <div class="card teacher-card fade-in">
+          <div class="media-frame media-frame--teacher">
+            <div class="media-frame__placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+              <span>講師写真（準備中）</span>
+            </div>
+            <img class="media-frame__img" src="images/teacher-01.jpg" alt="佐藤先生の写真" loading="lazy" onerror="this.classList.add('media-frame__img--error')">
+          </div>
+          <div class="teacher-card__body">
+            <h3 class="teacher-card__name">佐藤 先生</h3>
+            <p class="teacher-card__subject">担当：数学・理科</p>
+            <p class="teacher-card__policy">指導方針：小さな「できた」を積み重ね、自信につなげる指導を大切にしています。</p>
+            <p class="teacher-card__comment">一緒に苦手を得意に変えていきましょう。</p>
+          </div>
+        </div>
+
+        <div class="card teacher-card fade-in">
+          <div class="media-frame media-frame--teacher">
+            <div class="media-frame__placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+              <span>講師写真（準備中）</span>
+            </div>
+            <img class="media-frame__img" src="images/teacher-02.jpg" alt="高橋先生の写真" loading="lazy" onerror="this.classList.add('media-frame__img--error')">
+          </div>
+          <div class="teacher-card__body">
+            <h3 class="teacher-card__name">高橋 先生</h3>
+            <p class="teacher-card__subject">担当：英語・国語</p>
+            <p class="teacher-card__policy">指導方針：基礎の理解を最優先に、丁寧な説明を心がけています。</p>
+            <p class="teacher-card__comment">分からないところは何度でも聞いてくださいね。</p>
+          </div>
+        </div>
+
+        <div class="card teacher-card fade-in">
+          <div class="media-frame media-frame--teacher">
+            <div class="media-frame__placeholder">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 5-6 8-6s6.5 2 8 6"/></svg>
+              <span>講師写真（準備中）</span>
+            </div>
+            <img class="media-frame__img" src="images/teacher-03.jpg" alt="田中先生の写真" loading="lazy" onerror="this.classList.add('media-frame__img--error')">
+          </div>
+          <div class="teacher-card__body">
+            <h3 class="teacher-card__name">田中 先生</h3>
+            <p class="teacher-card__subject">担当：社会・理科</p>
+            <p class="teacher-card__policy">指導方針：暗記だけに頼らず、仕組みから理解する学習を大切にしています。</p>
+            <p class="teacher-card__comment">「なぜそうなるか」を一緒に考えましょう。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       8. Voice（生徒・保護者の声）
+       ========================================================================== -->
+  <section class="section" id="voice" aria-labelledby="voice-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">VOICE</p>
+        <h2 id="voice-heading">生徒・保護者の声</h2>
+      </div>
+
+      <p class="section-banner fade-in">※これはデモ用の架空の口コミです。実在の生徒・保護者のコメントではありません。</p>
+
+      <div class="grid grid--3">
+        <div class="card voice-card fade-in">
+          <span class="voice-card__attr">中学2年生</span>
+          <p class="voice-card__text">最初は数学が苦手でしたが、分からないところまで戻って教えてもらえたので、テストの点数が上がって嬉しかったです。</p>
+        </div>
+        <div class="card voice-card fade-in">
+          <span class="voice-card__attr">高校1年生</span>
+          <p class="voice-card__text">自分に合った学習計画を立ててもらえたおかげで、家での勉強の仕方が分かるようになりました。</p>
+        </div>
+        <div class="card voice-card fade-in">
+          <span class="voice-card__attr">中学3年生の保護者</span>
+          <p class="voice-card__text">定期的に学習状況を報告していただけるので、家では見えない様子が分かり安心して任せられています。</p>
+        </div>
+      </div>
+
+      <div class="section-cta fade-in">
+        <a href="#trial" class="btn btn--accent">無料体験を申し込む</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       9. Flow（無料体験までの流れ）
+       ========================================================================== -->
+  <section class="section section--navy" id="flow" aria-labelledby="flow-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">FLOW</p>
+        <h2 id="flow-heading">無料体験までの流れ</h2>
+      </div>
+
+      <ol class="flow-list">
+        <li class="flow-step fade-in">
+          <span class="flow-step__num" aria-hidden="true">01</span>
+          <h3>無料体験申し込み</h3>
+          <p>ページ下部のフォームより、ご希望の日時などをお知らせください。</p>
+        </li>
+        <li class="flow-step fade-in">
+          <span class="flow-step__num" aria-hidden="true">02</span>
+          <h3>学習状況のヒアリング</h3>
+          <p>現在の学習状況やお悩みについて、お電話またはご来塾時に詳しくお伺いします。</p>
+        </li>
+        <li class="flow-step fade-in">
+          <span class="flow-step__num" aria-hidden="true">03</span>
+          <h3>無料体験授業</h3>
+          <p>実際の授業と同じ形式で、個別指導を体験していただけます。</p>
+        </li>
+        <li class="flow-step fade-in">
+          <span class="flow-step__num" aria-hidden="true">04</span>
+          <h3>学習プランのご提案</h3>
+          <p>体験授業の結果をもとに、お子さまに合った学習プランをご提案します。</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       10. FAQ
+       ========================================================================== -->
+  <section class="section" id="faq" aria-labelledby="faq-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">FAQ</p>
+        <h2 id="faq-heading">よくある質問</h2>
+      </div>
+
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <h3>
+            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-1">
+              <span>無料体験は本当に無料ですか？</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div id="faq-answer-1" class="faq__answer" hidden>
+            <p>はい、無料体験授業の受講に費用は一切かかりません。安心してお申し込みください。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-2">
+              <span>入塾テストはありますか？</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div id="faq-answer-2" class="faq__answer" hidden>
+            <p>入塾のための選抜テストはございません。現在の学習状況に合わせて指導内容をご提案します。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-3">
+              <span>部活動と両立できますか？</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div id="faq-answer-3" class="faq__answer" hidden>
+            <p>通塾曜日・時間帯はご相談のうえ決められますので、部活動との両立も可能です。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-4">
+              <span>苦手科目だけ受講できますか？</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div id="faq-answer-4" class="faq__answer" hidden>
+            <p>はい、可能です。苦手な科目だけを選んで受講いただけます。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-5">
+              <span>授業の振替はできますか？</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div id="faq-answer-5" class="faq__answer" hidden>
+            <p>体調不良や学校行事などの場合、事前にご連絡いただければ振替授業を承ります。</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <h3>
+            <button type="button" class="faq__question" aria-expanded="false" aria-controls="faq-answer-6">
+              <span>保護者への報告はありますか？</span>
+              <span class="faq__icon" aria-hidden="true"></span>
+            </button>
+          </h3>
+          <div id="faq-answer-6" class="faq__answer" hidden>
+            <p>はい。学習状況や授業の様子を定期的にご報告し、家庭学習のアドバイスもお伝えしています。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       11. Access（教室情報）
+       ========================================================================== -->
+  <section class="section section--ivory" id="access" aria-labelledby="access-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">ACCESS</p>
+        <h2 id="access-heading">教室情報</h2>
+        <p>※本サイトに掲載の教室情報はすべてデモ用の架空情報です。</p>
+      </div>
+
+      <div class="access__grid fade-in">
+        <dl class="access__list">
+          <div>
+            <dt>住所</dt>
+            <dd>〒000-0000　架空県架空市学習町1-2-3　Bright Studyビル3F（デモ用住所）</dd>
+          </div>
+          <div>
+            <dt>最寄駅</dt>
+            <dd>架空線「学習前駅」徒歩3分（デモ用情報）</dd>
+          </div>
+          <div>
+            <dt>営業時間</dt>
+            <dd>平日 14:00〜21:30／土曜 10:00〜19:00（日祝休み・デモ用情報）</dd>
+          </div>
+          <div>
+            <dt>電話番号</dt>
+            <dd>0000-00-0000（デモ用番号）</dd>
+          </div>
+        </dl>
+
+        <div class="access-map" role="img" aria-label="教室周辺地図のイメージ（デモ用のプレースホルダーです）">
+          <span>Googleマップ（デモ用プレースホルダー）<br>公開時に実際の地図へ差し替えてください</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       12. Trial（無料体験申し込みフォーム）
+       ========================================================================== -->
+  <section class="section" id="trial" aria-labelledby="trial-heading">
+    <div class="container">
+      <div class="section-head fade-in">
+        <p class="eyebrow">TRIAL</p>
+        <h2 id="trial-heading">無料体験申し込み</h2>
+        <p>下記フォームに必要事項をご入力のうえ、送信してください。</p>
+      </div>
+
+      <form id="trial-form" class="trial-form fade-in">
+        <div class="form-row">
+          <label for="parent-name">保護者氏名<span class="required-mark">必須</span></label>
+          <input type="text" id="parent-name" name="parent-name" autocomplete="name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="grade">生徒の学年<span class="required-mark">必須</span></label>
+          <select id="grade" name="grade" required>
+            <option value="">選択してください</option>
+            <option value="jhs1">中学1年生</option>
+            <option value="jhs2">中学2年生</option>
+            <option value="jhs3">中学3年生</option>
+            <option value="hs1">高校1年生</option>
+            <option value="hs2">高校2年生</option>
+            <option value="hs3">高校3年生</option>
+            <option value="other">その他</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="phone">電話番号<span class="required-mark">必須</span></label>
+          <input type="tel" id="phone" name="phone" inputmode="tel" autocomplete="tel" placeholder="例：090-0000-0000" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">メールアドレス<span class="required-mark">必須</span></label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-row form-row--checks">
+          <fieldset>
+            <legend>希望科目（複数選択可）</legend>
+            <div class="check-grid">
+              <label><input type="checkbox" name="subject" value="japanese">国語</label>
+              <label><input type="checkbox" name="subject" value="math">数学</label>
+              <label><input type="checkbox" name="subject" value="english">英語</label>
+              <label><input type="checkbox" name="subject" value="science">理科</label>
+              <label><input type="checkbox" name="subject" value="social">社会</label>
+            </div>
+          </fieldset>
+        </div>
+
+        <div class="form-row">
+          <label for="preferred-datetime">希望日時</label>
+          <input type="text" id="preferred-datetime" name="preferred-datetime" placeholder="例：平日16時以降、土曜午前など">
+        </div>
+
+        <div class="form-row">
+          <label for="message">お悩み・相談内容</label>
+          <textarea id="message" name="message" placeholder="現在のお悩みやご相談内容をご自由にご記入ください"></textarea>
+        </div>
+
+        <button type="submit" class="btn btn--accent btn--block">この内容で申し込む</button>
+
+        <p class="form-disclaimer">※これはデモサイトのフォームです。送信ボタンを押しても実際には送信されません。</p>
+
+        <!-- 送信結果メッセージ（JavaScriptで表示・スクリーンリーダーにも通知） -->
+        <p id="form-status" class="form-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p><strong>Bright Study</strong>（デモサイト）</p>
+    <p>本サイトに掲載されている塾名・料金・実績・口コミ・講師・教室情報は、すべてWebサイト制作のデモ用に作成した架空のものです。</p>
+    <p>&copy; 2026 Bright Study</p>
+  </div>
+</footer>
+
+<script>
+/* ==========================================================================
+   JavaScript
+   必要最小限：
+   1. スマホ用ハンバーガーメニューの開閉
+   2. スクロール時のヘッダー変化
+   3. 控えめなフェードイン（IntersectionObserver）
+   4. FAQの開閉（アコーディオン）
+   5. デモ用フォーム送信処理
+   ========================================================================== */
+
+(function () {
+  'use strict';
+
+  /* ------------------------------------------------------------------
+     1. ハンバーガーメニューの開閉
+     ------------------------------------------------------------------ */
+  var menuToggle = document.getElementById('menu-toggle');
+  var mobileNav = document.getElementById('mobile-nav');
+
+  function openMenu() {
+    mobileNav.hidden = false;
+    menuToggle.setAttribute('aria-expanded', 'true');
+    menuToggle.setAttribute('aria-label', 'メニューを閉じる');
+    document.body.style.overflow = 'hidden'; // メニュー表示中は背面スクロールを止める
+  }
+
+  function closeMenu() {
+    mobileNav.hidden = true;
+    menuToggle.setAttribute('aria-expanded', 'false');
+    menuToggle.setAttribute('aria-label', 'メニューを開く');
+    document.body.style.overflow = '';
+  }
+
+  if (menuToggle && mobileNav) {
+    menuToggle.addEventListener('click', function () {
+      var isOpen = menuToggle.getAttribute('aria-expanded') === 'true';
+      if (isOpen) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    // メニュー内のリンクをクリックしたら閉じる
+    mobileNav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Escapeキーでも閉じられるようにする
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && menuToggle.getAttribute('aria-expanded') === 'true') {
+        closeMenu();
+        menuToggle.focus();
+      }
+    });
+  }
+
+  /* ------------------------------------------------------------------
+     2. スクロール時のヘッダー変化（少しスクロールしたら影を付ける）
+     ------------------------------------------------------------------ */
+  var header = document.getElementById('site-header');
+  function updateHeaderOnScroll() {
+    if (window.scrollY > 8) {
+      header.classList.add('is-scrolled');
+    } else {
+      header.classList.remove('is-scrolled');
+    }
+  }
+  if (header) {
+    updateHeaderOnScroll();
+    window.addEventListener('scroll', updateHeaderOnScroll, { passive: true });
+  }
+
+  /* ------------------------------------------------------------------
+     3. 控えめなフェードイン演出
+        prefers-reduced-motion（アニメーション低減設定）の場合は
+        アニメーションさせず、最初から表示する
+     ------------------------------------------------------------------ */
+  var fadeItems = document.querySelectorAll('.fade-in');
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (reduceMotion || !('IntersectionObserver' in window)) {
+    fadeItems.forEach(function (el) { el.classList.add('is-visible'); });
+  } else {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    fadeItems.forEach(function (el) { observer.observe(el); });
+  }
+
+  /* ------------------------------------------------------------------
+     4. FAQアコーディオン
+     ------------------------------------------------------------------ */
+  var faqButtons = document.querySelectorAll('.faq__question');
+  faqButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var expanded = btn.getAttribute('aria-expanded') === 'true';
+      var panel = document.getElementById(btn.getAttribute('aria-controls'));
+      btn.setAttribute('aria-expanded', String(!expanded));
+      if (panel) {
+        panel.hidden = expanded;
+      }
+    });
+  });
+
+  /* ------------------------------------------------------------------
+     5. デモ用フォーム送信処理
+        ・required属性によるブラウザ標準の入力チェックはそのまま活かすため
+          novalidate は使用しない
+        ・チェックを通過して submit イベントが発生した場合のみ、
+          実際には送信せずデモ用メッセージを表示する
+     ------------------------------------------------------------------ */
+  var trialForm = document.getElementById('trial-form');
+  var formStatus = document.getElementById('form-status');
+
+  if (trialForm && formStatus) {
+    trialForm.addEventListener('submit', function (e) {
+      e.preventDefault(); // デモサイトのため実際の送信は行わない
+      formStatus.hidden = false;
+      formStatus.textContent = 'デモサイトのため実際には送信されていません。';
+      formStatus.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+    });
+  }
+})();
+</script>
+
+</body>
+</html>
